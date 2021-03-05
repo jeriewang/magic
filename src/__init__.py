@@ -53,7 +53,7 @@ def check_buf(buf:Union[str,bytes], *flags) -> str:
     if flags:
         l=list(flags)
         l.append(RAW)
-        return _checkBuf(buf,len(buf),reduce(int.__or__,flags)).decode()
+        return _checkBuf(buf,len(buf),reduce(int.__or__,l)).decode()
     else:
         return _checkBuf(buf,len(buf),RAW|PRESERVE_ATIME).decode()
 
