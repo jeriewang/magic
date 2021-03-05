@@ -27,7 +27,7 @@ const char *checkBuf(void *buf, size_t size, int flags) {
         return NULL;
     }
     magic_load(cookie, NULL);
-    const char *str = magic_buffer(cookie, buf, size);
+    const char *str = magic_buffer(cookie, (void *)buf, size);
     size_t len = strlen(str) + 1;
     char *desc = (char *) malloc(len);
     memcpy(desc, str, len);
